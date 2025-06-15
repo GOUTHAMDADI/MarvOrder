@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Marvel Movies in Order</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #121212;
+      color: white;
+    }
+
+    header {
+      background-color: #e62429;
+      padding: 1rem 2rem;
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2rem;
+    }
+
+    .container {
+      padding: 2rem;
+      max-width: 800px;
+      margin: auto;
+    }
+
+    .toggle-buttons {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 2rem;
+    }
+
+    .toggle-buttons button {
+      background: #e62429;
+      border: none;
+      color: white;
+      padding: 0.75rem 1.5rem;
+      margin: 0 0.5rem;
+      cursor: pointer;
+      font-weight: bold;
+      border-radius: 5px;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    li {
+      background: #1e1e1e;
+      padding: 1rem;
+      margin-bottom: 1rem;
+      border-radius: 6px;
+    }
+
+    li span {
+      font-weight: bold;
+      color: #e62429;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Marvel Movies in Order</h1>
+  </header>
+
+  <div class="container">
+    <div class="toggle-buttons">
+      <button onclick="showList('release')">Release Order</button>
+      <button onclick="showList('chronological')">Chronological Order</button>
+    </div>
+
+    <div id="movie-list">
+      <!-- Movies will be displayed here -->
+    </div>
+  </div>
+
+  <script>
+    const releaseOrder = [
+      "Iron Man (2008)",
+      "The Incredible Hulk (2008)",
+      "Iron Man 2 (2010)",
+      "Thor (2011)",
+      "Captain America: The First Avenger (2011)",
+      "The Avengers (2012)",
+      "Iron Man 3 (2013)",
+      "Thor: The Dark World (2013)",
+      "Captain America: The Winter Soldier (2014)",
+      "Guardians of the Galaxy (2014)",
+      "Avengers: Age of Ultron (2015)",
+      "Ant-Man (2015)",
+      "Captain America: Civil War (2016)",
+      "Doctor Strange (2016)",
+      "Guardians of the Galaxy Vol. 2 (2017)",
+      "Spider-Man: Homecoming (2017)",
+      "Thor: Ragnarok (2017)",
+      "Black Panther (2018)",
+      "Avengers: Infinity War (2018)",
+      "Ant-Man and the Wasp (2018)",
+      "Captain Marvel (2019)",
+      "Avengers: Endgame (2019)",
+      "Spider-Man: Far From Home (2019)"
+    ];
+
+    const chronologicalOrder = [
+      "Captain America: The First Avenger (2011)",
+      "Captain Marvel (2019)",
+      "Iron Man (2008)",
+      "Iron Man 2 (2010)",
+      "The Incredible Hulk (2008)",
+      "Thor (2011)",
+      "The Avengers (2012)",
+      "Iron Man 3 (2013)",
+      "Thor: The Dark World (2013)",
+      "Captain America: The Winter Soldier (2014)",
+      "Guardians of the Galaxy (2014)",
+      "Guardians of the Galaxy Vol. 2 (2017)",
+      "Avengers: Age of Ultron (2015)",
+      "Ant-Man (2015)",
+      "Captain America: Civil War (2016)",
+      "Black Widow (2021)",
+      "Black Panther (2018)",
+      "Spider-Man: Homecoming (2017)",
+      "Doctor Strange (2016)",
+      "Thor: Ragnarok (2017)",
+      "Ant-Man and the Wasp (2018)",
+      "Avengers: Infinity War (2018)",
+      "Avengers: Endgame (2019)",
+      "Spider-Man: Far From Home (2019)"
+    ];
+
+    function showList(type) {
+      const list = type === 'release' ? releaseOrder : chronologicalOrder;
+      const container = document.getElementById('movie-list');
+      container.innerHTML = `<ul>${list.map(movie => `<li><span>${movie}</span></li>`).join('')}</ul>`;
+    }
+
+    // Show release order by default
+    showList('release');
+  </script>
+</body>
+</html>
